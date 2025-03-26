@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+</head>
+<body>
+
+    <h2>Product Catalog</h2>
+
+    <label for="category-filter">Filter by Category:</label>
+    <input type="text" id="category-filter" placeholder="Enter category">
+    <button onclick="displayProducts()">Filter</button>
+
+    <div id="product-list"></div>
+
+    <h3>Add a Product</h3>
+    <button onclick="addProduct()">Add Product (Prompt)</button>
+
+    <h3>Remove a Product</h3>
+    <input type="text" id="remove-name" placeholder="Product Name to Remove">
+    <button onclick="removeProduct()">Remove</button>
+
+    <script>
+        let products = [
+            { name: "Laptop", price: 800, category: "Electronics" },
+            { name: "Shoes", price: 50, category: "Fashion" },
+            { name: "Watch", price: 120, category: "Accessories" }
+        ];
+
+        function displayProducts() {
+            let productList = document.getElementById("product-list");
+            let filter = document.getElementById("category-filter").value.trim().toLowerCase();
+            productList.innerHTML = "";
+
+            for (let i = 0; i < products.length; i++) {
+                let product = products[i];
+                if (filter === "" || product.category.toLowerCase() === filter) {
+                    productList.innerHTML += `<p><strong>${product.name}</strong> - $${product.price} (${product.category})</p>`;
+                }
+            }
+        }
+
+        function addProduct() {
+            let name = prompt("Enter product name:").trim();
+            let price = prompt("Enter product price:").trim();
+            let category = prompt("Enter product category:").trim();
+
+            if (!name || !price || !category) {
+                alert("All fields are required.");
+                return;
+            }
+
+            price = parseFloat(price);
+            if (isNaN(price) || price <= 0) {
+                alert("Please enter a valid price.");
+                return;
+            }
+
+            let newProduct = { name, price, category };
+            products.push(newProduct);
+            displayProducts();
+        }
+
+        function removeProduct() {
+            let nameToRemove = document.getElementById("remove-name").value.trim();
+
+            if (nameToRemove === "") {
+                alert("Please enter a product name to remove.");
+                return;
+            }
+
+            let index = products.findIndex(product => product.name.toLowerCase() === nameToRemove.toLowerCase());
+
+            if (index !== -1) {
+                products.splice(index, 1);
+                displayProducts();
+                document.getElementById("remove-name").value = "";
+            } else {
+                alert("Product not found.");
+            }
+        }
+
+        displayProducts();
+    </script>
+
+</body>
+</html>

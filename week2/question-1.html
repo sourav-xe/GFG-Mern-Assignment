@@ -1,0 +1,94 @@
+<!-- Refactor the product listing page layout using flexbox
+    or grid to achieve a responsive design -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container{
+                height: 100vh;
+               display: flex;
+               flex-wrap:wrap;
+               margin-left: 110px;
+               
+            }
+            h1{
+                font-weight: bolder;
+                text-align: center;
+            }
+            .product{
+                margin: 20px;
+                padding: 10px;
+                height: 400px;
+                width: 500px;
+            }
+            .product-image 
+            {
+              width: 100%;
+             height: 200px;
+             object-fit:cover;
+             border-radius: 3%;
+             }
+            .box1{
+                background-color: rgb(123, 64, 225);
+                border: black 5px solid;
+                border-radius: 3%;
+            }
+            .box2{
+               background-color: yellow;
+                border: black 5px solid;
+            }
+            .box3{
+                background-color: rgb(171, 24, 21);
+                border: black 5px solid;
+            }
+            .box4{
+                background-color: rgb(12, 164, 195);
+                border: black 5px solid;
+            }
+            .price{
+                color: black;
+                font-size: larger;
+                font-weight: bolder;
+                b
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>OUR PRODUCTS</h1>
+        <div class="container">
+
+            <div class="product box1">
+                <img src="ps5 image.png" alt="box1" class="product-image">
+                <h1>PS5</h1>
+                <P>The PlayStation 5 (PS5) is a home video game console developed by Sony Interactive Entertainment. The PS5 is part of the ninth generation of video game consoles</P>
+                <p class="price">$499.00</p>
+            </div>
+
+            <div class="product box2">
+                <img src="controller ps5.jpeg" alt="box2" class="product-image">
+                <h1>Controller</h1>
+                <p>The DualSense wireless controller for PS5 consoles offers immersive haptic feedback 2, dynamic adaptive triggers 2 and a integrated into an iconic design</p>
+                <p class="price"> $70.23</p>
+            </div>
+
+            <div class="product box3">
+                <img src="ps5 games.jpeg" alt="box1" class="product-image">
+                <h1>Games</h1>
+                <p>Starting with one of the best PS5 games ‘Spider-Man Miles Morales’. Spider-Man games have always been fun to play. awesoeme gamess</p>
+                <p class="price">$30.99</p>
+            </div>
+
+            <div class="product box4">
+                <img src="ps5 accessors.webp" alt="box1" class="product-image">
+                <h1>Accessories</h1>
+                <p>he WD Black P50 comes from respected hard drive manufacturer Western Digital.This SSD features 1 TB storage space, as well as a stylishand very quick transfer speeds.</p>
+                <p class="price">$80.00</p>
+            </div>
+        </div>
+    </body>
+    </html>
